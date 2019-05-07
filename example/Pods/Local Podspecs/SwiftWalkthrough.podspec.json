@@ -1,0 +1,27 @@
+{
+  "name": "SwiftWalkthrough",
+  "version": "1.0.0",
+  "summary": "Simple semi modal presentation WalkThrough",
+  "description": "SwiftWalkthrough is a semi modal presentation Walkthrought",
+  "homepage": "https://github.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Daniel Martinez": "dmg241082@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/danymg/",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_version": "4.0",
+  "source_files": [
+    "SwiftWalkthrough",
+    "SwiftWalkthrough/**/*.{swift}"
+  ],
+  "resources": "SwiftWalkthrough/**/*.{xib,png}"
+}

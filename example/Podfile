@@ -1,0 +1,4 @@
+target 'testWalkThrought' do
+  use_frameworks!
+  pod 'SwiftWalkthrough', :path => '../SwiftWalkthrough'
+end
