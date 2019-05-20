@@ -95,8 +95,8 @@ public class WalkThroughtController: UIViewController, UIScrollViewDelegate {
         self.pageController.currentPage = 0
         
         //SKIP BUTTON
-        self.btSkip = UIButton.init(frame: CGRect(x: UIScreen.main.bounds.width - 90, y: 28, width: 70, height: 54))
-        self.btSkip.setTitle("Skip", for: .normal)
+        self.btSkip = UIButton.init(frame: CGRect(x: UIScreen.main.bounds.width - 120, y: 28, width: 110, height: 54))
+        self.btSkip.setTitle("Skip".uppercased(), for: .normal)
         self.btSkip.addTarget(self, action: #selector(pressSkipButton), for: .touchUpInside)
         
         //LEFT BUTTON
@@ -144,7 +144,7 @@ public class WalkThroughtController: UIViewController, UIScrollViewDelegate {
         
         DispatchQueue.main.async {
             self.scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(self.slides.count), height: UIScreen.main.bounds.height)
-        
+            
             for i in 0 ..< slides.count{
                 slides[i].frame = CGRect(x: UIScreen.main.bounds.width * CGFloat(i), y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 self.scrollView.addSubview(slides[i])
@@ -166,7 +166,7 @@ public class WalkThroughtController: UIViewController, UIScrollViewDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    
     @objc private func pressRightButton(_ sender: Any) {
         DispatchQueue.main.async {
             var frame: CGRect = self.scrollView.frame
@@ -184,8 +184,6 @@ public class WalkThroughtController: UIViewController, UIScrollViewDelegate {
             let next = self.pageController.currentPage - 1
             frame.origin.x = frame.size.width * CGFloat(next)
             frame.origin.y = 0
-            
-            NSLog("SCROLL PRESS LEFT: \(self.scrollView)")
             self.scrollView.scrollRectToVisible(frame, animated: true)
         }
     }
@@ -201,34 +199,34 @@ public class WalkThroughtController: UIViewController, UIScrollViewDelegate {
         
         let pageIndex = round(scrollView.contentOffset.x/UIScreen.main.bounds.width)
         pageController.currentPage = Int(pageIndex)
-    
+        
         switch Int(pageIndex) {
-            case 0:
-                DispatchQueue.main.async {
-                    self.btSkip.isHidden = false
-                    self.btLeftArrow.isHidden = false
-                    self.btRightArrow.isHidden = true
-                    self.closeButton.isHidden = true
-                }
-                break
-            case 1:
-                DispatchQueue.main.async {
-                    self.btSkip.isHidden = false
-                    self.btLeftArrow.isHidden = false
-                    self.btRightArrow.isHidden = false
-                    self.closeButton.isHidden = true
-                }
-                break
-            case 2:
-                DispatchQueue.main.async {
-                    self.btSkip.isHidden = true
-                    self.btLeftArrow.isHidden = false
-                    self.btRightArrow.isHidden = true
-                    self.closeButton.isHidden = false
-                }
-                break
-            default:
-                break
+        case 0:
+            DispatchQueue.main.async {
+                self.btSkip.isHidden = false
+                self.btLeftArrow.isHidden = true
+                self.btRightArrow.isHidden = false
+                self.closeButton.isHidden = true
+            }
+            break
+        case 1:
+            DispatchQueue.main.async {
+                self.btSkip.isHidden = false
+                self.btLeftArrow.isHidden = false
+                self.btRightArrow.isHidden = false
+                self.closeButton.isHidden = true
+            }
+            break
+        case 2:
+            DispatchQueue.main.async {
+                self.btSkip.isHidden = true
+                self.btLeftArrow.isHidden = false
+                self.btRightArrow.isHidden = true
+                self.closeButton.isHidden = false
+            }
+            break
+        default:
+            break
         }
     }
     
@@ -237,3 +235,4 @@ public class WalkThroughtController: UIViewController, UIScrollViewDelegate {
     }
     
 }
+
